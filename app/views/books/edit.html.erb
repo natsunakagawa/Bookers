@@ -1,0 +1,25 @@
+<div class="wrap">
+	<h1 class="edit-heading">Editing Book</h1>
+	<!-- form_for部分 -->
+	<%= form_for(@book) do |f| %>
+		<%= render 'layouts/error_messages', model: f.object %>
+		<span class="edit-box">
+			<h4>Title</h4>
+			<%= f.text_field :title %>
+		</span>
+		<span class="edit-box">
+			<h4>Body</h4>
+			<%= f.text_area :body %>
+		</span>
+		<span class="edit-box">
+			<%= f.submit 'Update Book' %>
+		</span>
+	<% end %>
+
+	<div class="edit-box">
+		<p>
+			<%= link_to "Show", book_path(@book) %> | 
+			<%= link_to "Back", books_path %>
+		</p>
+	</div>
+</div>

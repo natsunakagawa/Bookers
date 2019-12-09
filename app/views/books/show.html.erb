@@ -1,0 +1,26 @@
+<div class="show-wrapper">
+	<% if flash[:create] %>
+		<div class="flash">
+			<%= flash[:create] %>
+		</div>
+	<% end %>
+	<% if flash[:update] %>
+		<div class="flash">
+			<%= flash[:update] %>
+		</div>
+	<% end %>
+
+	<p class="show-text">
+		<span>Title: </span><%= @book.title %>
+	</p>
+	<p class="show-text">
+		<span>Body: </span><%= @book.body %>
+	</p>
+
+	<div class="root-text">
+		<p class="edit-text">
+			<%= link_to "Edit", edit_book_path(@book) %> |
+			<%= link_to "Back", books_path %>
+		</p>
+	</div>
+</div>

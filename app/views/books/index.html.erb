@@ -1,0 +1,50 @@
+<div class="wrap">
+
+	<h1>Books</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th class="table-heading">Title</th>
+				<th class="table-heading">Body</th>
+				<th class="table-heading" colspan="3"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<%  @books.each do |book| %>
+				<tr>
+					<td><%= book.title %></td>
+					<td><%= book.body %></td>
+					<td><%= link_to 'Show', book_path(book) %></td>
+					<td><%= link_to 'Edit', edit_book_path(book) %></td>
+					<td><%= link_to 'Destroy', book_path(book), method: :delete, "data-confirm" => "Are you sure?" %></td>
+				</tr>
+			<% end %>	
+		</tbody>
+	</table>
+
+	<div class="index-box">
+		<section>
+			<h3 class="new-heading">New book</h3>
+		</section>
+		<%= form_for(@book) do |f| %>
+			<%= render 'layouts/error_messages', model: f.object %>
+			
+			<div class="new-box">
+				<p>Title</p>
+				<%= f.text_field :title %>
+			</div>
+			<div class="new-box">
+				<p>Body</p>
+				<%= f.text_area :body %>
+			</div>
+			<div class="new-box">
+				<%= f.submit 'Create Book' %>
+			</div>
+
+		<% end %>	
+
+	</div>
+
+</div>
